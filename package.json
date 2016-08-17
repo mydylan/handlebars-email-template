@@ -1,0 +1,26 @@
+{
+  "name": "handlebars-email-template",
+  "version": "1.0.0",
+  "description": "A handlebars email template.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha && eslint index.js"
+  },
+  "keywords": [
+    "handlebars",
+    "handlebars-email-template"
+  ],
+  "author": "Matthew Claffey",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "eslint": "^3.3.1",
+    "fs-extra": "^0.30.0",
+    "handlebars": "^4.0.5",
+    "object-assign": "^4.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.0.2",
+    "should": "^11.1.0"
+  }
+}
