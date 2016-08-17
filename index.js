@@ -35,18 +35,24 @@ function handlebarsEmailTemplate(options) {
           partialName: partialPath.replace('.' + config.ext, ''),
           contents: contents
         });
+
+        return;
     })
     .catch(handleError);
   }
 
   function outputResultMessage() {
     console.log(config.destTemplate + '.html Generated');
+
+    return;
   }
 
   function createTemplate(html) {
       fs.outputFileAsync(config.dest + config.destTemplate + '.html', html)
       .then(outputResultMessage)
       .catch(handleError);
+
+      return;
   }
 
   function compileTemplate(hbs) {
@@ -60,6 +66,8 @@ function handlebarsEmailTemplate(options) {
     .then(compileTemplate)
     .then(createTemplate)
     .catch(handleError);
+
+    return;
   }
 
   function readPartialDirectory(filePathArr) {

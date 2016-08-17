@@ -26,10 +26,10 @@ describe('When I trigger my handlebars-email-template the output', function() {
     })
     .then(function(contents) {
       testData = contents;
+
+      return options;
     })
-    .then(function() {
-      handlebarsEmailTemplate(options);
-    })
+    .then(handlebarsEmailTemplate)
     .then(function() {
       fs.readFileAsync(options.dest + options.destTemplate + '.html', 'utf8').then(function(contents) {
         return contents;
@@ -41,6 +41,7 @@ describe('When I trigger my handlebars-email-template the output', function() {
           done();
         } else {
           console.log('test data does not match results');
+          return true;
         }
       })
       .catch(function(e) {
