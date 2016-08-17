@@ -1,6 +1,6 @@
 # Handlebars Email Template
 
-[![Build Status](https://img.shields.io/travis/code-computerlove/HTML-Snippets.svg?branch=master&style=flat-square)](https://travis-ci.org/code-computerlove/HTML-Snippets)
+[![Build Status](https://img.shields.io/travis/code-mattclaffey/handlebars-email-template.svg?branch=master&style=flat-square)](https://travis-ci.org/code-mattclaffey/handlebars-email-template)
 
 > Using handlebars to create your email templates with ease.
 
