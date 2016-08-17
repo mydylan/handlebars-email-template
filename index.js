@@ -24,29 +24,6 @@ function handlebarsEmailTemplate(options) {
     console.error(error.stack);
   }
 
-  function registerPartial(partialObj) {
-    handlebars.registerPartial(partialObj.partialName, partialObj.contents);
-  }
-
-  function getPartialContents(partialPath) {
-    fs.readFileAsync(config.root + config.src + partialPath, 'utf8')
-    .then(function(contents) {
-        registerPartial({
-          partialName: partialPath.replace('.' + config.ext, ''),
-          contents: contents
-        });
-
-        return;
-    })
-    .catch(handleError);
-  }
-
-  function outputResultMessage() {
-    console.log(config.destTemplate + '.html Generated');
-
-    return;
-  }
-
   function createTemplate(html) {
       fs.outputFileAsync(config.dest + config.destTemplate + '.html', html)
       .then(outputResultMessage)
@@ -70,6 +47,32 @@ function handlebarsEmailTemplate(options) {
     return;
   }
 
+  function registerPartial(partialObj) {
+    handlebars.registerPartial(partialObj.partialName, partialObj.contents);
+  }
+
+  function getPartialContents(partialPath) {
+    fs.readFileAsync(config.root + config.src + partialPath, 'utf8')
+    .then(function(contents) {
+        registerPartial({
+          partialName: partialPath.replace('.' + config.ext, ''),
+          contents: contents
+        });
+
+        return;
+    })
+    .then(setupTemplate)
+    .catch(handleError);
+  }
+
+  function outputResultMessage() {
+    console.log(config.destTemplate + '.html Generated');
+
+    return;
+  }
+
+
+
   function readPartialDirectory(filePathArr) {
 
     filePathArr.forEach(getPartialContents);
@@ -81,7 +84,6 @@ function handlebarsEmailTemplate(options) {
   function init() {
     fs.readdirAsync(config.root + config.src)
     .then(readPartialDirectory)
-    .then(setupTemplate)
     .catch(handleError);
   }
 
