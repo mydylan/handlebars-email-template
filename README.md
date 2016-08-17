@@ -12,7 +12,7 @@
 ```js
 var handlebarsEmailTemplate = require('handlebars-email-template');
 
-var options {
+var options = {
 	root: './views/', // This is the root of your templates folder
 	src: '_partials/', // Partials folder
 	dest: './compiled/', // Destination directory
