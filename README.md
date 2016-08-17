@@ -7,6 +7,19 @@
 ## Setup
 `npm install handlebars-email-template`
 
+### Folder Structure
+
+```
+- views
+	- partials
+		table-row.hbs
+	email.hbs
+- index.js 
+```
+
+### Email Template HTML
+You can use the [HTML Snippets - Email Template](https://github.com/code-computerlove/HTML-Snippets/tree/master/responsive%20email%20template) as a starting point for your template.
+
 ## Usage
 
 ```js
