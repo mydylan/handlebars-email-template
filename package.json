@@ -6,6 +6,7 @@
   "scripts": {
     "test": "mocha && eslint index.js"
   },
+	"author": "Matthew Claffey",
   "keywords": [
     "handlebars",
     "handlebars-email-template"

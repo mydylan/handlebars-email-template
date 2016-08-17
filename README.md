@@ -5,7 +5,7 @@
 > Using handlebars to create your email templates with ease.
 
 ## Setup
-- `npm install handlebars-email-template`
+`npm install handlebars-email-template`
 
 ## Usage
 
@@ -25,8 +25,8 @@ handlebarsEmailTemplate(options);
 
 // Expected output
 
-- compiled
-	- email.html
+//- compiled
+//	- email.html
 
 ```
 
