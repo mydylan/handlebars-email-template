@@ -71,7 +71,6 @@ function handlebarsEmailTemplate(options) {
 
         return;
     })
-    .then(setupTemplate)
     .catch(handleError);
   }
 
@@ -91,6 +90,7 @@ function handlebarsEmailTemplate(options) {
   function init() {
     glob.readdirPromise(config.root + config.src + '**/*.hbs')
     .then(readPartialDirectory)
+    .then(setupTemplate)
     .catch(handleError);
   }
 
