@@ -53,7 +53,7 @@ function handlebarsEmailTemplate(options) {
 
   function getPartialContents(partialPath) {
     fs.readFileAsync(config.root + config.src + partialPath, 'utf8')
-    .then(function(contents) {
+    .then(function passDownPartialPath(contents) {
         registerPartial({
           partialName: partialPath.replace('.' + config.ext, ''),
           contents: contents
@@ -70,8 +70,6 @@ function handlebarsEmailTemplate(options) {
 
     return;
   }
-
-
 
   function readPartialDirectory(filePathArr) {
 

@@ -36,10 +36,14 @@ describe('When I trigger my handlebars-email-template the output', function() {
         } else {
           console.log('test data does not match results');
         }
+
+        return;
       })
       .catch(function(e) {
         console.error(e.stack);
       });
+
+      return;
     })
     .catch(function(e) {
       console.error(e.stack);
