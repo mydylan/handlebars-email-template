@@ -3,6 +3,7 @@ var handlebars = require('handlebars');
 var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('fs-extra'));
 var objectAssign = require('object-assign');
+var glob = require('glob-fs')({ gitignore: true });
 
 var data = require('./data/data.json');
 
@@ -52,6 +53,15 @@ function handlebarsEmailTemplate(options) {
   }
 
   function getPartialContents(partialPath) {
+
+
+    var startPath = partialPath.indexOf(config.src);
+    var endPath = partialPath.length;
+
+    partialPath = partialPath.substr(startPath, endPath).replace(config.src, '');
+
+    partialPath.replace(options.src, '');
+
     fs.readFileAsync(config.root + config.src + partialPath, 'utf8')
     .then(function passDownPartialPath(contents) {
         registerPartial({
@@ -72,7 +82,6 @@ function handlebarsEmailTemplate(options) {
   }
 
   function readPartialDirectory(filePathArr) {
-
     filePathArr.forEach(getPartialContents);
 
     return;
@@ -80,7 +89,7 @@ function handlebarsEmailTemplate(options) {
   }
   // Get an array of partials from the partials directory by reading for every hbs file.
   function init() {
-    fs.readdirAsync(config.root + config.src)
+    glob.readdirPromise(config.root + config.src + '**/*.hbs')
     .then(readPartialDirectory)
     .catch(handleError);
   }
