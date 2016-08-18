@@ -27,7 +27,6 @@ function handlebarsEmailTemplate(options) {
   }
 
   function createTemplate(html) {
-      console.log(path.resolve(__dirname, config.dest , config.destTemplate + '.html'));
 
       fs.outputFileAsync(path.resolve(__dirname, config.dest , config.destTemplate + '.html'), html)
       .then(outputResultMessage)

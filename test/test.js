@@ -9,7 +9,7 @@ var path = require('path');
 var options = {
   root: 'views',
   src: '_partials',
-  dest: 'testData/generated',
+  dest: 'test/testData/generated',
   srcTemplate: 'email',
   destTemplate: 'test',
   ext: 'hbs'
@@ -24,11 +24,11 @@ beforeEach(function(done) {
 describe('When I trigger my handlebars-email-template the output', function() {
   it('should match with the testData output.', function(done) {
 
-    fs.readFileAsync(path.resolve(__dirname, options.dest , options.destTemplate + '.html'), 'utf8').then(function(contents) {
+    fs.readFileAsync(path.resolve(options.dest , options.destTemplate + '.html'), 'utf8').then(function(contents) {
         return contents;
     })
     .then(function(testData) {
-      fs.readFileAsync(path.resolve(__dirname, options.dest, options.destTemplate + '.html'), 'utf8')
+      fs.readFileAsync(path.resolve(options.dest, options.destTemplate + '.html'), 'utf8')
 
       .then(function(contents) {
         if(testData === contents) {
