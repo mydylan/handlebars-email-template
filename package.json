@@ -1,6 +1,6 @@
 {
   "name": "handlebars-email-template",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "A handlebars email template.",
   "main": "index.js",
   "scripts": {

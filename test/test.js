@@ -4,12 +4,12 @@ var should = require('should');
 var handlebarsEmailTemplate = require('../index');
 var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('fs-extra'));
-
+var path = require('path');
 
 var options = {
-  root: './views/',
-  src: '_partials/',
-  dest: './test/testData/generated/',
+  root: 'views',
+  src: '_partials',
+  dest: 'testData/generated',
   srcTemplate: 'email',
   destTemplate: 'test',
   ext: 'hbs'
@@ -24,11 +24,11 @@ beforeEach(function(done) {
 describe('When I trigger my handlebars-email-template the output', function() {
   it('should match with the testData output.', function(done) {
 
-    fs.readFileAsync(options.dest + options.destTemplate + '.html', 'utf8').then(function(contents) {
+    fs.readFileAsync(path.resolve(__dirname, options.dest , options.destTemplate + '.html'), 'utf8').then(function(contents) {
         return contents;
     })
     .then(function(testData) {
-      fs.readFileAsync(options.dest + options.destTemplate + '.html', 'utf8')
+      fs.readFileAsync(path.resolve(__dirname, options.dest, options.destTemplate + '.html'), 'utf8')
 
       .then(function(contents) {
         if(testData === contents) {

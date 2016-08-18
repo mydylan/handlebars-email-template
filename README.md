@@ -28,9 +28,9 @@ You can use the [HTML Snippets - Email Template](https://github.com/code-compute
 var handlebarsEmailTemplate = require('handlebars-email-template');
 
 var options = {
-	root: './views/', // This is the root of your templates folder
-	src: '_partials/', // Partials folder
-	dest: './compiled/', // Destination directory
+	root: 'views', // This is the root of your templates folder
+	src: '_partials', // Partials folder
+	dest: 'compiled', // Destination directory
 	srcTemplate: 'email', // Src Template
 	destTemplate: 'email', // Destination Template Name
 	ext: 'hbs'
