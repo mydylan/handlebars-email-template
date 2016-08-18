@@ -15,8 +15,18 @@ var options = {
   ext: 'hbs'
 };
 
+var optionsTwo = {
+  root: 'views',
+  src: '_partials',
+  dest: 'test/testData/generatedTwo',
+  srcTemplate: 'email',
+  destTemplate: 'test',
+  ext: 'hbs'
+};
+
 beforeEach(function(done) {
   handlebarsEmailTemplate(options);
+  handlebarsEmailTemplate(optionsTwo);
 
   done();
 });
@@ -24,11 +34,12 @@ beforeEach(function(done) {
 describe('When I trigger my handlebars-email-template the output', function() {
   it('should match with the testData output.', function(done) {
 
-    fs.readFileAsync(path.resolve(options.dest , options.destTemplate + '.html'), 'utf8').then(function(contents) {
+    fs.readFileAsync(path.resolve('test/testData/generated', options.destTemplate + '.html'), 'utf8').then(function(contents) {
         return contents;
     })
     .then(function(testData) {
-      fs.readFileAsync(path.resolve(options.dest, options.destTemplate + '.html'), 'utf8')
+
+      fs.readFileAsync(path.resolve('test/testData/generatedTwo', optionsTwo.destTemplate + '.html'), 'utf8')
 
       .then(function(contents) {
         if(testData === contents) {

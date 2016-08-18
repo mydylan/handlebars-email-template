@@ -63,7 +63,6 @@ function handlebarsEmailTemplate(options) {
   }
 
   function getPartialContents(partialPath) {
-
     fs.readFileAsync(partialPath, 'utf8')
     .then(function passDownPartialPath(contents) {
         registerPartial({
