@@ -10,6 +10,9 @@ notifications:
 node_js:
     - '5.1'
     - '4.4'
+os:
+  - linux
+  - osx
 install:
     - npm install
 before_install:
