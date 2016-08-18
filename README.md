@@ -10,11 +10,13 @@
 ### Folder Structure
 
 ```
+- data
+  data.json
 - views
 	- partials
 		table-row.hbs
 	email.hbs
-- index.js 
+- index.js
 ```
 
 ### Email Template HTML
