@@ -6,8 +6,6 @@ var path = require('path');
 var objectAssign = require('object-assign');
 var glob = require('glob-fs')({ gitignore: true });
 
-var data = require('./data/data.json');
-
 function handlebarsEmailTemplate(options) {
   var template; // Where we compile the email.html page.
 
@@ -17,7 +15,8 @@ function handlebarsEmailTemplate(options) {
     dest: 'compiled',
     srcTemplate: 'email',
     destTemplate: 'email',
-    ext: 'hbs'
+    ext: 'hbs',
+    data: 'data/data.json'
   };
 
   var config = objectAssign(defaults, options);
@@ -36,6 +35,8 @@ function handlebarsEmailTemplate(options) {
   }
 
   function compileTemplate(hbs) {
+      var data = require(path.resolve(defaults.data));
+      
       template = handlebars.compile(hbs)(data);
 
       return template;

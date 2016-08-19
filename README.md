@@ -33,7 +33,8 @@ var options = {
 	dest: 'compiled', // Destination directory
 	srcTemplate: 'email', // Src Template
 	destTemplate: 'email', // Destination Template Name
-	ext: 'hbs'
+	ext: 'hbs',
+	data: 'data/data.json' // Path to data file
 };
 
 handlebarsEmailTemplate(options);
@@ -52,3 +53,4 @@ handlebarsEmailTemplate(options);
 - `dest` - Output directory
 - `srcTemplate` - Name of the template eg: `email.hbs`
 - `destTemplate` - Name of output file.
+- `data` - path to data.
