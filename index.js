@@ -28,7 +28,7 @@ function handlebarsEmailTemplate(options) {
 
   function createTemplate(html) {
 
-      fs.outputFileAsync(path.resolve(__dirname, config.dest , config.destTemplate + '.html'), html)
+      fs.outputFileAsync(path.resolve(config.dest , config.destTemplate + '.html'), html)
       .then(outputResultMessage)
       .catch(handleError);
 
@@ -42,7 +42,7 @@ function handlebarsEmailTemplate(options) {
   }
 
   function setupTemplate() {
-    fs.readFileAsync(path.resolve(__dirname, config.root , config.srcTemplate + '.' + config.ext), 'utf8')
+    fs.readFileAsync(path.resolve(config.root , config.srcTemplate + '.' + config.ext), 'utf8')
     .then(compileTemplate)
     .then(createTemplate)
     .catch(handleError);
