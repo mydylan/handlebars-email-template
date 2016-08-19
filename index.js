@@ -36,7 +36,7 @@ function handlebarsEmailTemplate(options) {
 
   function compileTemplate(hbs) {
       var data = require(path.resolve(defaults.data));
-      
+
       template = handlebars.compile(hbs)(data);
 
       return template;
@@ -83,9 +83,9 @@ function handlebarsEmailTemplate(options) {
   }
 
   function readPartialDirectory(filePathArr) {
-    filePathArr.forEach(getPartialContents);
+    var partialPromises = filePathArr.map(getPartialContents);
 
-    return;
+    return Promise.all(partialPromises);
 
   }
   // Get an array of partials from the partials directory by reading for every hbs file.
